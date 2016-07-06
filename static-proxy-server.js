@@ -4,11 +4,10 @@
 
 'use strict'
 
-const _ = require('lodash')
 const express = require('express')
 const proxy = require('http-proxy-middleware')
 const morgan = require('morgan')
-const path = require("path")
+const path = require('path')
 const open = require('opn')
 const url = require('url')
 
