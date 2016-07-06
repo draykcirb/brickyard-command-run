@@ -19,11 +19,14 @@
   },
   "dependencies": {
     "express": "^4.0.0",
-    "http-proxy-middleware": "^0.14.0",
+    "http-proxy-middleware": "^0.17.0",
     "lodash": "^4.6.1",
     "log4js": "^0.6.33",
     "morgan": "^1.7.0",
-    "opn": "^3.0.0"
+    "opn": "^4.0.0"
+  },
+  "peerDependencies": {
+    "brickyard3": "~1.0.0"
   },
   "config": {
     "validate-commit-msg": {
