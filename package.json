@@ -10,6 +10,10 @@
   },
   "author": "e-cloud",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:draykcirb/brickyard-command-run.git"
+  },
   "devDependencies": {
     "conventional-changelog": "^1.1.0",
     "eslint": "^3.0.0",
