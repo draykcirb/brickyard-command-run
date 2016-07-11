@@ -16,7 +16,7 @@ module.exports = {
  * @param {function(Object)} optionsCallback
  */
 function register(cmd, optionsCallback) {
-	cmd
+	return cmd
 		.description('run a program on the target release dir')
 		.arguments('<dir>')
 		.usage('<dir> [options]')
