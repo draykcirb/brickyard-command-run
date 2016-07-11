@@ -27,7 +27,7 @@
     "opn": "^4.0.0"
   },
   "peerDependencies": {
-    "brickyard3": "~1.0.0"
+    "brickyard3": "^1.0.0"
   },
   "config": {
     "validate-commit-msg": {
