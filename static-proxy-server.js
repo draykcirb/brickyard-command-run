@@ -15,7 +15,7 @@ const logger = require('log4js').getLogger('SPS')
 
 module.exports = function createServer(config) {
     const server = express()
-    const staticPath = path.resolve(process.cwd(), config.dir)
+    const staticPath = path.resolve(process.cwd(), config.dir ? config.dir : config.outputBase + config.destPostfix)
 
     server.use(express.static(staticPath))
     server.use(morgan('dev'))

@@ -13,7 +13,8 @@ module.exports = {
         host: 'localhost',
         browse: true,
         https: false,
-        apiProxy: null
+        apiProxy: null,
+        allowNoPrograms: true
     }
 }
 
@@ -24,18 +25,20 @@ module.exports = {
  */
 function register(cmd, optionsCallback) {
     return cmd
-        .description('run a program on the target release dir')
-        .arguments('<dir>')
-        .usage('<dir> [options]')
-        .option('--program <program...>', 'specify the program to read config', function (param) {
-            return param.split(',').map(function (program) {
-                return program.trim()
-            })
-        })
+        .description('run a program on the target release dir. program argument or dir option should exist one.')
+        .arguments('[program...]')
+        .usage('[program...] [options]')
+        .option('--dest-prefix <prefix>', 'the output dir prefix you use in your dev or release or other command. Default is release')
+        .option('--dest-postfix <postfix>', 'the actual output dir to host every asset')
+        .option('--dir <dir>', 'the directory you want the server to serve')
         .option('--no-browse', 'do not open the browser automatically')
         .option('--https', 'use https protocol to serve the resources')
-        .action(function (dir) {
-            optionsCallback(Object.assign({ dir: dir }, this.opts()))
+        .action(function (program) {
+            const opts = Object.assign({ program: program }, this.opts())
+            if (!opts.destPrefix) {
+                opts.destPrefix = 'release'
+            }
+            optionsCallback(opts)
         })
 }
 
