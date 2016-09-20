@@ -32,7 +32,7 @@ module.exports = function createServer(config) {
 		logger.info(`\nserving file from ${staticPath}\nstatic-proxy-server is running...`)
 
 		const serverUrl = url.format({
-			protocol: config.protocol,
+			protocol: config.https ? 'https' : 'http',
 			hostname: config.host,
 			port: config.port
 		})

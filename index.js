@@ -7,7 +7,14 @@ const sps = require('./static-proxy-server')
 
 module.exports = {
 	register,
-	run
+	run,
+	config: {
+		port: 8080,
+		host: 'localhost',
+		browse: true,
+		https: false,
+		apiProxy: null
+	}
 }
 
 /**
