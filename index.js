@@ -6,15 +6,15 @@
 const sps = require('./static-proxy-server')
 
 module.exports = {
-	register,
-	run,
-	config: {
-		port: 8080,
-		host: 'localhost',
-		browse: true,
-		https: false,
-		apiProxy: null
-	}
+    register,
+    run,
+    config: {
+        port: 8080,
+        host: 'localhost',
+        browse: true,
+        https: false,
+        apiProxy: null
+    }
 }
 
 /**
@@ -23,22 +23,22 @@ module.exports = {
  * @param {function(Object)} optionsCallback
  */
 function register(cmd, optionsCallback) {
-	return cmd
-		.description('run a program on the target release dir')
-		.arguments('<dir>')
-		.usage('<dir> [options]')
-		.option('--program <program...>', 'specify the program to read config', function (param) {
-			return param.split(',').map(function (program) {
-				return program.trim()
-			})
-		})
-		.option('--no-browse', 'do not open the browser automatically')
-		.option('--https', 'use https protocol to serve the resources')
-		.action(function (dir) {
-			optionsCallback(Object.assign({ dir: dir }, this.opts()))
-		})
+    return cmd
+        .description('run a program on the target release dir')
+        .arguments('<dir>')
+        .usage('<dir> [options]')
+        .option('--program <program...>', 'specify the program to read config', function (param) {
+            return param.split(',').map(function (program) {
+                return program.trim()
+            })
+        })
+        .option('--no-browse', 'do not open the browser automatically')
+        .option('--https', 'use https protocol to serve the resources')
+        .action(function (dir) {
+            optionsCallback(Object.assign({ dir: dir }, this.opts()))
+        })
 }
 
 function run(runtime) {
-	sps(runtime.config)
+    sps(runtime.config)
 }
