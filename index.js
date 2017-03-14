@@ -1,6 +1,7 @@
 /**
  * Created by scott on 16-3-31.
  */
+
 'use strict'
 
 const sps = require('./static-proxy-server')
